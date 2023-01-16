@@ -12,14 +12,15 @@ namespace Mission2
 
         static void Main(string[] args)
         {
-
+            // initial writings to instruct the user on the program
             Console.WriteLine("Welcome to the dice throwing simulator!");
             Console.WriteLine("");
             Console.WriteLine("How many dice rolls would you like to simulate? ");
             Console.WriteLine("");
-            numRolled = Convert.ToInt32(Console.ReadLine());
+            numRolled = Convert.ToInt32(Console.ReadLine()); // reading in their input
             Console.WriteLine("");
 
+            // Generating the rolls and for each combination, adding that to the array at that given index
             for (int i = 0; i < numRolled; i++)
             {
                 Random rnd = new Random();
@@ -29,20 +30,20 @@ namespace Mission2
 
                 int sum = dice1 + dice2;
 
-                AddToArray(sum);
+                AddToArray(sum); // Will actually perform the addition of the count of that num being rolled to the array
             }
 
             Console.WriteLine("DICE ROLLING SIMULATION RESULTS");
             Console.WriteLine("Each ' * ' represents 1% of the total number of rolls.");
-            Console.WriteLine($"Total number of rolls = {numRolled}.");
+            Console.WriteLine($"Total number of rolls = {numRolled}."); // displaying to user the total num of rolls theyve selected
             Console.WriteLine("");
 
-            Print();
+            Print(); // This will perform the function of printing the number and the percentage astricks
             Console.WriteLine("");
             Console.WriteLine("Thank you for using the dice throwing simulator. Goodbye!");
         }
 
-        static void AddToArray (int sum)
+        static void AddToArray (int sum) // Will find the sum case and then add to that index a count of times it has been rolled
         {
             switch(sum)
             {
@@ -82,7 +83,7 @@ namespace Mission2
             }
         }
 
-        static void Print()
+        static void Print() // Actual printing of the results
         {
             int num = 2;// this will be used for printing the numbers out
 
@@ -94,13 +95,13 @@ namespace Mission2
                 // this equation will get the percent of each type of roll
                 percent = ((decimal)arrayNum / (decimal)numRolled);
 
+                // for every percent then we will add an astrick to that row
                 for (int t = 0; t < (percent * (decimal)100); t++)
                 {
                     astricks += "*";
                 }
 
-
-
+                // This is the final print statement of the for loop
                 Console.WriteLine($"{num}: {astricks}");
 
                 num++; // this will increment the number each time one is printed
