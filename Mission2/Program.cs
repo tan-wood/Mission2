@@ -92,9 +92,9 @@ namespace Mission2
                 string astricks = ""; // this will hold the num of astricks each number has
                 int arrayNum = totals[i];
                 // this equation will get the percent of each type of roll
-                percent = ((decimal)arrayNum / (decimal)numRolled) * (decimal)100;
+                percent = ((decimal)arrayNum / (decimal)numRolled);
 
-                for (int t = 0; t < percent; t++)
+                for (int t = 0; t < (percent * (decimal)100); t++)
                 {
                     astricks += "*";
                 }
